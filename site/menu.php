@@ -12,7 +12,7 @@
     <div>
 		<ul>
 			<?php 
-				require_once("../dbconnect.php");
+				require_once("dbconnect.php");
 				$sql = "SELECT * FROM menu_categories ORDER BY sort";
 				$results = mysql_query( $sql );
 				$current_cat = $_GET['category'];
