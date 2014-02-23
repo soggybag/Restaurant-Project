@@ -1,0 +1,1 @@
+These files create a simple web site for a restaurant. 
