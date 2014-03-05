@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ajax Example</title>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+		<script type="text/javascript">
+$(document).ready( function(){
+	// Assign a click event to links that will fetch the menu data
+	$("a.menu-link").click( function(event){
+		event.preventDefault();			// prevent the default link behavior
+		var url = $(this).attr("href");	// get the href value url
+		$.get( url, function(data){		// use jquery get() to load data from the url
+			$("#menu").html( data );	// handle the loaded data
+		} );
+	} );
+
+	// Load the menu for the first time
+	$.get( "menu-ajax.php", function(data){
+		$("#menu").html( data );
+	} );
+} );
+		</script>
+	</head>
+	<body>
+		<p>
+			<!-- Some links to load menu stuff -->
+			<a class="menu-link" href="menu-ajax.php?cat=1">Curry</a>
+			<a class="menu-link" href="menu-ajax.php?cat=2">Category 2</a>
+			<a class="menu-link" href="menu-ajax.php?cat=3">Category 3</a>
+			<a class="menu-link" href="menu-ajax.php">All menu</a>
+		</p>
+	
+		<ul id="menu">
+			<!-- ajaxy stuff loaded here -->
+		</ul>
+	</body>
+</html>
